@@ -1,6 +1,7 @@
-package com.moonsinfo.cache.redis.caffeine.spring.boot.autoconfigure;
+package com.github;
 
 import org.springframework.cache.Cache;
+import org.springframework.cache.support.SimpleValueWrapper;
 
 import java.util.Map;
 import java.util.concurrent.Callable;
@@ -28,36 +29,45 @@ public class MyCache implements Cache {
 
 	@Override
 	public ValueWrapper get(Object key) {
-		return null;
+		return new SimpleValueWrapper(cache.get(key));
 	}
 
 	@Override
 	public <T> T get(Object key, Class<T> type) {
-		return null;
+		return (T) cache.get(key);
 	}
 
 	@Override
 	public <T> T get(Object key, Callable<T> valueLoader) {
-		return null;
+		Object value = cache.get(key);
+		if (value == null) {
+			try {
+				value = valueLoader.call();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return (T) value;
 	}
 
 	@Override
 	public void put(Object key, Object value) {
-
+		this.cache.put((String) key, value);
 	}
 
 	@Override
 	public ValueWrapper putIfAbsent(Object key, Object value) {
-		return null;
+		return new SimpleValueWrapper(this.cache.putIfAbsent((String) key, value));
 	}
 
 	@Override
 	public void evict(Object key) {
-
+		this.cache.remove(key);
 	}
 
 	@Override
 	public void clear() {
-
+		this.cache.clear();
 	}
 }

@@ -53,8 +53,11 @@ public class UserService {
 	/** 添加 */
 	@CachePut(value="objectCache", key="(#root.targetClass.getSimpleName()).concat(':id:').concat(#user.id)")
 	public User add(User user) {
+		// 特别注意: 这里 SpEL #user.id  入参user 和 反馈对象user 要 == SpEL才能取到值
+
 		logger.info("add...");
-		return new User(1, "成都add");
+		user.setId(1);
+		return user;
 	}
 	/** 删除 */
 	@CacheEvict(value="objectCache", key="(#root.targetClass.getSimpleName()).concat(':id:').concat(#id)")
@@ -65,13 +68,20 @@ public class UserService {
 	@CachePut(value="objectCache", key="(#root.targetClass.getSimpleName()).concat(':id:').concat(#user.id)")
 	public User update(User user) {
 		logger.info("update...");
-		return new User(1, "update");
+		return new User(1, "成都update");
 	}
 	/** 查看 - 从Cache中获取对象 */
-	@Cacheable(value="objectCache", key="(#root.targetClass.getSimpleName()).concat(':id:').concat(#id)")
+	@Cacheable(value="objectCache", key="(#root.targetClass.getSimpleName()).concat(':id:').concat(#id)", unless="#result eq null")
 	public User get(Integer id) {
 		logger.info("get...");
-		return new User(id, "get");
+		return new User(id, "成都get");
+	}
+
+	@Cacheable(value="objectCache", key="(#root.targetClass.getSimpleName()).concat(':id:').concat(#id)", unless="#result eq null")
+	public User getNull(Integer id) {
+		// unless="#result eq null"  设置不缓存null, 这里会造成缓存穿透
+		logger.info("getNull...");
+		return null;
 	}
 }
 
