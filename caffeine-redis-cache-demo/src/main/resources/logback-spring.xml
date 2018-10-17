@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="FALSE" scan="FALSE" scanPeriod="600000">
+
+    <springProperty scope="context" name="appName" source="spring.application.name"/>
+
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <property name="LOG_HOME" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}}"/>
+
+
+    <!-- 最大保存历史日志天数 -->
+    <property name="LOG_MAX_HISTORY" value="15"/>
+    <property name="CONSOLE_LOG_PATTERN" value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+    <property name="FILE_LOG_PATTERN" value="${FILE_LOG_PATTERN:-%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+
+
+    <logger name="sun" level="INFO"/>
+    <logger name="java" level="INFO"/>
+    <logger name="javax" level="INFO"/>
+    <logger name="com.sun" level="INFO"/>
+    <logger name="io.netty" level="INFO"/>
+    <logger name="io.lettuce" level="INFO"/>
+    <logger name="org.apache.tomcat" level="INFO"/>
+    <logger name="org.apache.coyote" level="INFO"/>
+    <logger name="org.apache.catalina" level="INFO"/>
+    <logger name="org.apache.http.wire" level="INFO"/>
+    <logger name="org.apache.http.headers" level="INFO"/>
+    <logger name="freemarker.cache" level="INFO"/>
+    <logger name="reactor.ipc.netty.channel.ChannelOperations" level="DEBUG"/>
+    <logger name="reactor.ipc.netty.http.client.HttpClient" level="INFO"/>
+    <logger name="reactor.ipc.netty.http.server.HttpServer" level="INFO"/>
+    <logger name="org.thymeleaf.standard.expression" level="DEBUG"/>
+    <logger name="org.thymeleaf.spring4.expression.SPELVariableExpressionEvaluator" level="DEBUG"/>
+    <logger name="org.thymeleaf.TemplateEngine.CONFIG" level="INFO"/>
+    <logger name="org.thymeleaf.TemplateEngine.TIMER" level="INFO"/>
+    <logger name="org.springframework.boot.autoconfigure" level="DEBUG"/>
+    <logger name="org.springframework.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer" level="INFO"/>
+    <logger name="org.springframework.boot.bind" level="INFO"/>
+    <logger name="org.springframework.boot.context" level="INFO"/>
+    <logger name="org.springframework.boot.web.filter" level="INFO"/>
+
+    <logger name="net.sf.ehcache.Cache" level="INFO"/>
+    <logger name="net.sf.ehcache.config.ConfigurationHelper" level="INFO"/>
+    <logger name="net.sf.ehcache.constructs.web.filter.Filter" level="INFO"/>
+    <logger name="net.sf.ehcache.constructs.web.filter.GzipFilter" level="INFO"/>
+    <logger name="net.sf.ehcache.statistics.extended.ExtendedStatisticsImpl" level="INFO"/>
+    <logger name="net.sf.ehcache.store.MemoryStore" level="INFO"/>
+    <logger name="org.apache.shiro.cache.ehcache.EhCache" level="DEBUG"/>
+    <logger name="org.apache.shiro.crypto.JcaCipherService" level="DEBUG"/>
+    <logger name="org.apache.shiro.mgt.DefaultSecurityManager" level="DEBUG"/>
+    <logger name="org.apache.shiro.session.mgt.AbstractValidatingSessionManager" level="DEBUG"/>
+    <logger name="org.apache.shiro.spring.web.ShiroFilterFactoryBean" level="DEBUG"/>
+    <logger name="org.apache.shiro.subject.support.DelegatingSubject" level="DEBUG"/>
+    <logger name="org.apache.shiro.util.ThreadContext" level="DEBUG"/>
+    <logger name="org.apache.shiro.web.filter.mgt.PathMatchingFilterChainResolver" level="DEBUG"/>
+    <logger name="org.apache.shiro.web.filter.PathMatchingFilter" level="DEBUG"/>
+    <logger name="org.apache.shiro.web.mgt.CookieRememberMeManager" level="DEBUG"/>
+    <logger name="org.apache.shiro.web.servlet.AbstractShiroFilter" level="DEBUG"/>
+    <logger name="org.apache.shiro.web.servlet.AdviceFilter" level="DEBUG"/>
+    <logger name="org.apache.shiro.web.servlet.OncePerRequestFilter" level="DEBUG"/>
+    <logger name="org.apache.shiro.web.servlet.ProxiedFilterChain" level="DEBUG"/>
+    <logger name="org.apache.shiro.web.servlet.SimpleCookie" level="DEBUG"/>
+    <logger name="org.mybatis.spring.SqlSessionFactoryBean" level="INFO"/>
+    <logger name="org.mybatis.spring.SqlSessionUtils" level="INFO"/>
+    <logger name="org.mybatis.spring.mapper.ClassPathMapperScanner" level="DEBUG"/>
+    <logger name="org.springframework.aop.aspectj.autoproxy.AspectJAwareAdvisorAutoProxyCreator" level="INFO"/>
+    <logger name="org.springframework.aop.framework.autoproxy.BeanFactoryAdvisorRetrievalHelper" level="INFO"/>
+    <logger name="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator" level="INFO"/>
+    <logger name="org.springframework.aop.framework.autoproxy.InfrastructureAdvisorAutoProxyCreator" level="INFO"/>
+    <logger name="org.springframework.aop.framework.Cglib2AopProxy" level="INFO"/>
+    <logger name="org.springframework.aop.framework.CglibAopProxy" level="INFO"/>
+    <logger name="org.springframework.aop.framework.JdkDynamicAopProxy" level="INFO"/>
+    <logger name="org.springframework.beans.AbstractNestablePropertyAccessor" level="DEBUG"/>
+    <logger name="org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener" level="INFO"/>
+    <logger name="org.springframework.beans.CachedIntrospectionResults" level="INFO"/>
+    <logger name="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" level="DEBUG"/>
+    <logger name="org.springframework.beans.factory.annotation.InjectionMetadata" level="INFO"/>
+    <logger name="org.springframework.beans.factory.support.DefaultListableBeanFactory" level="INFO"/>
+    <logger name="org.springframework.beans.factory.xml" level="INFO"/>
+    <logger name="org.springframework.beans.factory.xml.PluggableSchemaResolver" level="INFO"/>
+    <logger name="org.springframework.beans.TypeConverterDelegate" level="INFO"/>
+    <logger name="org.springframework.cache.interceptor.CacheInterceptor" level="TRACE"/>
+    <logger name="org.springframework.cache.annotation.AnnotationCacheOperationSource" level="INFO"/>
+    <logger name="org.springframework.context.annotation.ConfigurationClassEnhancer" level="INFO"/>
+    <logger name="org.springframework.context.annotation.ConfigurationClassPostProcessor" level="INFO"/>
+    <logger name="org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader" level="INFO"/>
+    <logger name="org.springframework.context.annotation.ClassPathBeanDefinitionScanner" level="DEBUG"/>
+    <logger name="org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider" level="INFO"/>
+    <logger name="org.springframework.context.event.EventListenerMethodProcessor" level="INFO"/>
+    <logger name="org.springframework.core.env.PropertySourcesPropertyResolver" level="INFO"/>
+    <logger name="org.springframework.core.env.StandardEnvironment" level="INFO"/>
+    <logger name="org.springframework.core.env.MutablePropertySources" level="INFO"/>
+    <logger name="org.springframework.core.env.SystemEnvironmentPropertySource" level="INFO"/>
+    <logger name="org.springframework.core.io.support.PathMatchingResourcePatternResolver" level="INFO"/>
+    <logger name="org.springframework.core.type.classreading.AnnotationAttributesReadingVisitor" level="INFO"/>
+    <logger name="org.springframework.data.redis.core.RedisConnectionUtils" level="INFO"/>
+    <logger name="org.springframework.jdbc.core.JdbcTemplate" level="INFO"/>
+    <logger name="org.springframework.jdbc.core.StatementCreatorUtils" level="INFO"/>
+    <logger name="org.springframework.jdbc.datasource.DataSourceTransactionManager" level="INFO"/>
+    <logger name="org.springframework.jdbc.datasource.DataSourceUtils" level="INFO"/>
+    <logger name="org.springframework.jndi" level="INFO"/>
+    <logger name="org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor" level="INFO"/>
+    <logger name="org.springframework.session.data.redis.RedisOperationsSessionRepository" level="INFO"/>
+    <logger name="org.springframework.session.data.redis.RedisSessionExpirationPolicy" level="INFO"/>
+    <logger name="org.springframework.session.web.http.OnCommittedResponseWrapper" level="INFO"/>
+    <logger name="org.springframework.session.web.http.SessionRepositoryFilter" level="INFO"/>
+    <logger name="org.springframework.transaction.interceptor.RuleBasedTransactionAttribute" level="INFO"/>
+    <logger name="org.springframework.transaction.support.TransactionSynchronizationManager" level="INFO"/>
+    <logger name="org.springframework.web.context.support.StandardServletEnvironment" level="INFO"/>
+    <logger name="org.springframework.web.context.support.XmlWebApplicationContext" level="INFO"/>
+    <logger name="org.springframework.web.method.HandlerMethod" level="DEBUG"/>
+    <logger name="org.springframework.web.method.support.HandlerMethodArgumentResolverComposite" level="INFO"/>
+    <logger name="org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite" level="INFO"/>
+    <logger name="org.springframework.web.servlet.DispatcherServlet" level="INFO"/>
+    <logger name="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" level="INFO"/>
+    <logger name="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" level="INFO"/>
+    <logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" level="INFO"/>
+    <logger name="org.springframework.web.servlet.view.ContentNegotiatingViewResolver" level="INFO"/>
+    <logger name="org.springframework.web.servlet.view.freemarker" level="INFO"/>
+    <logger name="org.springframework.web.servlet.resource.ResourceHttpRequestHandler" level="DEBUG"/>
+    <logger name="org.springframework.web.servlet.resource.PathResourceResolver" level="DEBUG"/>
+    <logger name="org.springframework.web.socket.server.support.WebSocketHandlerMapping" level="DEBUG"/>
+    <logger name="org.springframework.web.socket.sockjs.transport.handler.HtmlFileTransportHandler" level="DEBUG"/>
+    <logger name="org.springframework.web.socket.sockjs.transport.handler.XhrStreamingTransportHandler" level="DEBUG"/>
+    <logger name="org.springframework.web.socket.sockjs.transport.session.WebSocketServerSockJsSession" level="DEBUG"/>
+    <logger name="org.springframework.ui.freemarker.SpringTemplateLoader" level="INFO"/>
+
+
+    <logger name="com.github.mapper" level="INFO"/>
+    <logger name="com.moonsinfo" level="INFO"/>
+
+    <!-- 控制台输出 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!--<withJansi>true</withJansi>-->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+            <!--<pattern>${CONSOLE_LOG_PATTERN}</pattern>-->
+            <pattern>%clr(%d{yyyy-MM-dd HH:mm:ss}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}</pattern>
+            <!--<pattern><pattern>[%-5p][%d{yyyy-MM-dd HH:mm:ss}]%c[%F]:%L - &lt;%m&gt;%n</pattern></pattern>-->
+        </encoder>
+    </appender>
+
+    <!-- 消息日志，记录项目所有消息记录 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 如果指定了file属性，当天的文件名为file属性值 -->
+        <file>${LOG_HOME}/${appName}-spring.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名 -->
+            <FileNamePattern>${LOG_HOME}/${appName}-spring.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+    </appender>
+
+    <root level="ALL">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
+
+
+
+
+
